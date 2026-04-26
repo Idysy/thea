@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boutique — Théa Aloe Care &amp; Wellness</title>
+  <meta name="description" content="Boutique en ligne Théa Aloe Care &amp; Wellness : gels, soins visage, cheveux et bien-être à base d'Aloe Vera." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-expand-lg navbar-thea sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-thea" href="index.html">Théa Aloe <span class="brand-w">Care &amp; Wellness</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto my-3 my-lg-0 align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link nav-link-thea" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-thea active" href="produits.html">Boutique</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-thea" href="opportunite.html">Opportunité</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-thea" href="tel:+221773823973"><i class="bi bi-telephone" aria-hidden="true"></i> 77 382 39 73</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-thea" href="mailto:therese@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i> therese@gmail.com</a></li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center gap-2 pb-3 pb-lg-0">
+          <a href="panier.html" class="btn-cart-nav nav-link-thea position-relative align-self-center">
+            <i class="bi bi-bag" aria-hidden="true"></i>
+            <span class="visually-hidden">Panier</span>
+            <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="display:none;font-size:0.65rem">0</span>
+          </a>
+          <a class="btn btn-nav-cta" data-wa-preset href="https://wa.me/221773823973" target="_blank" rel="noopener noreferrer">Commander sur WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="tunnel-header">
+    <div class="container">
+      <span class="section-label">Notre gamme</span>
+      <h1 class="section-title mt-2">Tous nos produits Aloe Vera</h1>
+      <div class="divider"></div>
+      <p class="section-subtitle">Des soins naturels pour la peau, les cheveux et le bien-être quotidien.</p>
+    </div>
+  </section>
+
+  <section class="section-pad-sm">
+    <div class="container">
+      <div class="filter-toolbar mb-4">
+        <div class="d-none d-md-flex flex-wrap justify-content-center gap-2 filter-tabs-desktop">
+        <button type="button" class="filter-tab btn-secondary-thea active" data-filter="all" style="padding:0.55rem 1.25rem;font-size:0.92rem">Tous</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Nutrition & compléments" style="padding:0.55rem 1.25rem;font-size:0.92rem">Nutrition</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Soin visage" style="padding:0.55rem 1.25rem;font-size:0.92rem">Visage</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Soin corps" style="padding:0.55rem 1.25rem;font-size:0.92rem">Corps</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Soin cheveux" style="padding:0.55rem 1.25rem;font-size:0.92rem">Cheveux</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Hygiène personnelle" style="padding:0.55rem 1.25rem;font-size:0.92rem">Hygiène</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Bien-être & récupération" style="padding:0.55rem 1.25rem;font-size:0.92rem">Bien-être</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Gestion du poids" style="padding:0.55rem 1.25rem;font-size:0.92rem">Poids</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Énergie & performance" style="padding:0.55rem 1.25rem;font-size:0.92rem">Énergie</button>
+        <button type="button" class="filter-tab btn-secondary-thea" data-filter="Packs & programmes" style="padding:0.55rem 1.25rem;font-size:0.92rem">Packs</button>
+      </div>
+
+        <div class="shop-filters-mobile d-md-none">
+          <label class="form-label shop-filter-label" for="shop-category-select">Filtrer par catégorie</label>
+          <select id="shop-category-select" class="form-select shop-filter-select" autocomplete="off">
+            <option value="Nutrition & compléments">Nutrition & compléments</option>
+            <option value="Soin visage">Soin visage</option>
+            <option value="Soin corps">Soin corps</option>
+            <option value="Soin cheveux">Soin cheveux</option>
+            <option value="Hygiène personnelle">Hygiène personnelle</option>
+            <option value="Bien-être & récupération">Bien-être & récupération</option>
+            <option value="Gestion du poids">Gestion du poids</option>
+            <option value="Énergie & performance">Énergie & performance</option>
+            <option value="Packs & programmes">Packs & programmes</option>
+          </select>
+          <label class="form-label shop-filter-label mt-3" for="shop-sort-select">Trier par prix</label>
+          <select id="shop-sort-select" class="form-select shop-filter-select" autocomplete="off">
+            <option value="default" selected>Pertinence</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row g-4" id="products-grid"></div>
+    </div>
+  </section>
+
+  <section class="section-pad-sm bg-green-light">
+    <div class="container text-center">
+      <p class="mb-3" style="color:var(--text-muted);max-width:520px;margin-left:auto;margin-right:auto">Vous souhaitez revendre ces produits et construire un revenu complémentaire ?</p>
+      <a href="opportunite.html" class="btn-gold-thea"><i class="bi bi-briefcase" aria-hidden="true"></i> Découvrir l’opportunité <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <footer class="footer-thea mt-auto">
+    <div class="container footer-inner">
+      <div class="footer-brand">Théa Aloe <span class="gold">Care &amp; Wellness</span></div>
+      <p class="footer-desc">Cosmétiques et bien-être à base d’Aloe Vera. Conseils personnalisés et livraison au Sénégal.</p>
+      <ul class="footer-contact-list">
+        <li><a href="tel:+221773823973"><i class="bi bi-telephone" aria-hidden="true"></i> 77 382 39 73</a></li>
+        <li><a href="mailto:therese@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i> therese@gmail.com</a></li>
+      </ul>
+      <div class="footer-links-row">
+        <a href="index.html">Accueil</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="produits.html">Boutique</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="opportunite.html">Opportunité</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="mailto:therese@gmail.com">Contact</a>
+      </div>
+      <div class="footer-links-row" style="font-size:0.82rem">
+        <a href="pourquoi.html">Pourquoi nous rejoindre</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="fonctionnement.html">Fonctionnement</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="revenus.html">Revenus</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="preuves.html">Témoignages</a>
+        <span style="color:#5a6a5a">·</span>
+        <a href="rejoindre.html">Rejoindre</a>
+      </div>
+      <div class="footer-social">
+        <a class="social-btn" data-wa-preset href="https://wa.me/221773823973" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <a href="mailto:therese@gmail.com" class="social-btn" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+        <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© 2026 Théa Aloe Care &amp; Wellness · Dakar, Sénégal</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-wa-preset href="https://wa.me/221773823973" target="_blank" rel="noopener noreferrer" aria-label="Discuter sur WhatsApp"><i class="bi bi-whatsapp" style="font-size:1.6rem"></i></a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
