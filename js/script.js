@@ -180,20 +180,28 @@ function generateOrderMessage() {
   const address = document.getElementById('customer-address')?.value.trim() || 'À définir';
   const phone = document.getElementById('customer-phone')?.value.trim() || '';
 
+  const fmt = (n) => Number(n || 0).toLocaleString('fr-SN');
+
   let msg = `Commande — Théa Aloe Care & Wellness\n\n`;
   msg += `Nom : ${name}\n`;
-  msg += `Téléphone : ${phone}\n`;
+  if (phone) msg += `Téléphone : ${phone}\n`;
   msg += `Adresse de livraison : ${address}\n\n`;
-  msg += `Produits :\n`;
+  msg += `Récapitulatif :\n`;
 
   cart.forEach((item) => {
-    msg += `• ${item.name} × ${item.qty || 1} — ${(item.price * (item.qty || 1)).toLocaleString('fr-SN')} FCFA\n`;
+    const qty = item.qty || 1;
+    const unit = Number(item.price || 0);
+    const lineTotal = unit * qty;
+    msg += `• ${item.name}\n`;
+    msg += `  - Qté : ${qty}\n`;
+    msg += `  - PU : ${fmt(unit)} FCFA\n`;
+    msg += `  - Sous-total : ${fmt(lineTotal)} FCFA\n`;
   });
 
-  msg += `\nTotal : ${getCartTotal().toLocaleString('fr-SN')} FCFA\n`;
+  msg += `\nTotal commande : ${fmt(getCartTotal())} FCFA\n`;
   msg += `\nMerci pour votre confiance.`;
 
-  return encodeURIComponent(msg);
+  return msg;
 }
 
 function generateJoinMessage() {
@@ -205,11 +213,12 @@ function generateJoinMessage() {
   msg += `Niveau d'intérêt : ${level}\n\n`;
   msg += `Je souhaite en savoir plus sur l'activité de revente et l'accompagnement proposé. Merci de me recontacter.`;
 
-  return encodeURIComponent(msg);
+  return msg;
 }
 
 function buildWhatsAppUrl(message) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+  const encoded = encodeURIComponent(String(message || ''));
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
 }
 
 // ============================================
@@ -689,7 +698,7 @@ function renderProducts(filter = 'all', sort) {
             <a href="produit-detail.html?id=${escapeHtml(p.id)}" class="btn-primary-thea flex-grow-1 text-center">Voir le détail</a>
             <button type="button" class="btn-secondary-thea px-3 justify-content-center js-add-cart" style="min-width:52px" data-product-id="${escapeHtml(p.id)}" aria-label="Ajouter au panier"><i class="bi bi-cart2"></i></button>
           </div>
-          <a href="${buildWhatsAppUrl(encodeURIComponent(`Bonjour Théa, je souhaite commander : ${p.name} (Théa Aloe Care & Wellness). Merci.`))}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-100 justify-content-center mt-2" style="font-size:0.9rem;padding:0.65rem 1rem">
+          <a href="${buildWhatsAppUrl(`Bonjour Théa, je souhaite commander : ${p.name} (Théa Aloe Care & Wellness). Merci.`)}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-100 justify-content-center mt-2" style="font-size:0.9rem;padding:0.65rem 1rem">
             <i class="bi bi-whatsapp"></i> WhatsApp
           </a>
         </div>
@@ -975,7 +984,7 @@ function initCheckoutButton() {
     }
 
     const msg = generateOrderMessage();
-    window.open(buildWhatsAppUrl(decodeURIComponent(msg)), '_blank', 'noopener,noreferrer');
+    window.open(buildWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
   });
 }
 
@@ -985,7 +994,7 @@ function initJoinButton() {
 
   btn.addEventListener('click', function () {
     const msg = generateJoinMessage();
-    window.open(buildWhatsAppUrl(decodeURIComponent(msg)), '_blank', 'noopener,noreferrer');
+    window.open(buildWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
   });
 }
 
